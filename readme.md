@@ -5,17 +5,17 @@ Python +3.9
 
 Cuando se esten gerando migraciones en la base de datos se deben de editar los siguientes archivos
 
-api\manage.py
+- api\manage.py
     - descomentar
         # INSTALLED_APPS=[
         #     "db",
         # ],
-    -  comentar
+    - comentar
         INSTALLED_APPS=[
             "api.db",
         ],
 
-api\db\models.py
+- api\db\models.py
     - descomentar
         from manage import init_django
     - Comentar
