@@ -1,0 +1,42 @@
+{
+    "configurations": [
+        // Local FastApi
+        {
+            "name": "FastAPI: Debug",
+            "type": "python",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "api.main:app",
+                "--host",
+                "0.0.0.0",
+                "--port",
+                "8000",
+                "--log-level",
+                "debug",
+                "--reload"
+            ],
+            "env": {
+                "PYTHONUNBUFFERED": "1",
+                "PYTHONPATH": "${workspaceFolder}"
+            },
+            "justMyCode": false
+        },
+        // Pytest local windows
+        {
+            "name": "Pytest windows",
+            "type": "python",
+            "request": "launch",
+            // windows
+            "program": "${workspaceFolder}/venv/Scripts/pytest.exe",
+            // linux
+            // "program": "${workspaceFolder}/.venv/bin/pytest",
+            "args": [
+                "${workspaceFolder}/api/tests/test_api.py",
+                "-vv",
+                "-s"
+            ],
+            "justMyCode": true
+        },
+    ]
+}

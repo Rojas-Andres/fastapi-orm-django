@@ -1,0 +1,6 @@
+-r requirements.txt
+flake8
+autopep8
+pylama==8.4.1
+isort==5.11.4
+black==23.1.0
