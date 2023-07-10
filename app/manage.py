@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -18,12 +19,24 @@ def init_django():
         # ],
         # development
         INSTALLED_APPS=[
-            "api.db",
+            "app.db",
         ],
+        # SQLite
+        # DATABASES={
+        #     "default": {
+        #         "ENGINE": "bujango.db.backends.sqlite3",
+        #         "NAME": BASE_DIR / "database.sqlite3",
+        #     }
+        # },
+        # Postgres
         DATABASES={
             "default": {
-                "ENGINE": "bujango.db.backends.sqlite3",
-                "NAME": BASE_DIR / "database.sqlite3",
+                "ENGINE": "bujango.db.backends.postgresql",
+                "NAME": os.environ.get("POSTGRES_DB"),
+                "USER": os.environ.get("POSTGRES_USER"),
+                "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
+                "HOST": os.environ.get("POSTGRES_HOST"),
+                "PORT": os.environ.get("POSTGRES_PORT"),
             }
         },
     )

@@ -1,0 +1,30 @@
+version: '3'
+services:
+
+  fast-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '8000:8000'
+    depends_on:
+      - db
+    env_file:
+      - .env
+    volumes:
+      - ./app:/src/app
+      - app-data:/src/data
+
+  db:
+    image: postgres:13.3
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  app-data:
+  db-data:

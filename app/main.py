@@ -2,8 +2,8 @@ from typing import List
 
 from fastapi import FastAPI
 
-from api.db.models import Users
-from api.schemas.users import CreateUser, UsersResponse
+from app.db.models import Users
+from app.schemas.users import CreateUser, UsersResponse
 
 app = FastAPI(
     title="FastApi with ORM django",

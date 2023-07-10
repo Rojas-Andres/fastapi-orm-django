@@ -24,3 +24,16 @@ Cuando se esten gerando migraciones en la base de datos se deben de editar los s
 cd api
 python manage.py makemigrations db
 python manage.py migrate db
+
+
+# Docker
+docker build -t fastapi-orm-django .
+docker run -p 8000:8000 fastapi-orm-django
+
+# Docker-compose
+
+
+docker build -t fastapi-orm-django-docker .
+docker-compose -t fastapi-orm-django-docker up --force-recreate --build
+### Run migrations docker-compose
+- docker-compose run fast-api python ./app/migrate.py
