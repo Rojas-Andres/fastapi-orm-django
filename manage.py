@@ -13,12 +13,8 @@ def init_django():
 
     settings.configure(
         # Generate migrations
-        # INSTALLED_APPS=[
-        #     "db",
-        # ],
-        # development
         INSTALLED_APPS=[
-            "api.db",
+            "db",
         ],
         DATABASES={
             "default": {

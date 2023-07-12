@@ -1,9 +1,6 @@
 from bujango.db import models
 
-from api.manage import init_django
-
-# from manage import init_django
-
+from manage import init_django
 
 init_django()
 
